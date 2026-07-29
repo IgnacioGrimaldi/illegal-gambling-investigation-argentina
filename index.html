@@ -259,6 +259,17 @@
         .step {
             margin-bottom: 70svh;
         }
+
+        .grafico-encabezado h3 {
+            margin: 1.8em 0 0.15em;
+        }
+
+        .grafico-encabezado p {
+            font-size: 0.78em;
+            line-height: 1.45;
+            color: #b0aaa2;
+            padding-bottom: 0.5em;
+        }
     </style>
 </head>
 
@@ -451,6 +462,13 @@
     </div>
 
     <div class="full-width">
+        <div class="content grafico-encabezado">
+            <h3>After 6 p.m., promotional messages and the number of transfers increased</h3>
+            <p>Based on court cases about illegal gambling, the reports of transfers received by two investigated
+                accounts include the hour of each movement, as do the messages scraped from Telegram. Each column is
+                shaded against its own minimum and maximum, so colors are comparable within a column but not between
+                columns.</p>
+        </div>
         <figure>
             <img src="heatmap.svg" alt="Hourly table of Telegram messages and transfers to two investigated accounts">
         </figure>
@@ -479,11 +497,30 @@
         <h3>Betting by minors</h3>
     </div>
 
-    <div class="full-width">
-        <figure>
-            <img src="waffle.svg" alt="Grid of 266 accounts by how much money they received back">
-        </figure>
-    </div>
+    <section id="scrolly-waffle" class="scrolly-container">
+        <div class="sticky-thing">
+            <div class="scrolly-encabezado">
+                <h3>What happened to the money the 266 accounts sent</h3>
+                <p>An official report, included in a court case about illegal gambling, detected transfers between 266
+                    accounts registered to minors and another one.</p>
+            </div>
+            <img src="waffle-1.svg" alt="Grid of 266 accounts by how much money they received back">
+        </div>
+        <div class="steps-container">
+            <div class="step" id="waffle-paso1">
+                <p><strong>245 accounts</strong><br>Received nothing back</p>
+            </div>
+            <div class="step" id="waffle-paso2">
+                <p><strong>9 accounts</strong><br>Received less than they sent</p>
+            </div>
+            <div class="step" id="waffle-paso3">
+                <p><strong>7 accounts</strong><br>Received more than they sent</p>
+            </div>
+            <div class="step" id="waffle-paso4">
+                <p><strong>5 accounts</strong><br>Received the same amount</p>
+            </div>
+        </div>
+    </section>
 
     <div class="content">
         <p>The case reviewed shows 523 transfers from 266 accounts whose primary holders are minors. They did not go
@@ -604,6 +641,45 @@
 
         d3.select("#red-paso2").on('stepin', (e) => {
             d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "red.svg")
+        })
+
+        ;(() => {
+            const scroller = scrollama()
+
+            scroller
+                .setup({
+                    parent: document.querySelector("#scrolly-waffle"),
+                    step: ".step",
+                    offset: 0.6,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                    element.dispatchEvent(event)
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    if (direction === "up" && element.previousElementSibling) {
+                        const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                        element.previousElementSibling.dispatchEvent(event)
+                    }
+                })
+
+            window.addEventListener("resize", scroller.resize)
+        })()
+
+        d3.select("#waffle-paso1").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "waffle-1.svg")
+        })
+
+        d3.select("#waffle-paso2").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "waffle-2.svg")
+        })
+
+        d3.select("#waffle-paso3").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "waffle-3.svg")
+        })
+
+        d3.select("#waffle-paso4").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "waffle-4.svg")
         })
     </script>
 
