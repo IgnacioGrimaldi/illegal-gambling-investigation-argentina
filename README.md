@@ -1,7 +1,7 @@
 # The money trail in Argentina's illegal gambling investigations
 This repository analyzed the information contained in 10 court cases about illegal gambling: the investigated websites, its cashiers, reports about transfers and the role of minors
 # Here you can read this investigative data driven story
-
+https://ignaciogrimaldi.github.io/illegal-gambling-investigation-argentina/
 # Findings based on court cases
 An investigated network of at least 39 online casinos and 91 cashiers. Two of them are minors, according to the information in bank documents.
 The amount of money received by two accounts under investigation for allegedly receiving funds from illegal gambling, and to whom it was transferred. 
