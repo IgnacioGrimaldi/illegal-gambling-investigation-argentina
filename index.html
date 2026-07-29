@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Money Trail in Argentina's Illegal Gambling Investigations</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-size: 20px;
+            font-family: 'Source Serif 4', Georgia, 'Times New Roman', Times, serif;
+            text-rendering: optimizeLegibility;
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .content {
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .header {
+            padding: 1.2em 0 0.8em;
+        }
+
+        a {
+            color: #f05349;
+        }
+
+        .footer {
+            background: #101010;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        figure {
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #999;
+        }
+
+        h1 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 800;
+            font-size: 3em;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 800;
+            font-size: 2em;
+            line-height: 1.1;
+        }
+
+        h3 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 700;
+            font-size: 1.4em;
+            line-height: 1.2;
+            margin: 1.8em 0 0.7em;
+        }
+
+        h3.unalinea {
+            font-size: 1.22em;
+        }
+
+        .subhead {
+            font-size: 1.05em;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .byline {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.65em;
+            color: #7d7d7d;
+            margin-bottom: 2em;
+        }
+
+        .byline p {
+            padding-bottom: 0;
+        }
+
+        .full-width figure {
+            text-align: center;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+        }
+
+        .full-width figure img {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        img.ilustracion {
+            display: block;
+            max-width: 520px;
+            margin: 10px auto 6px;
+        }
+
+        img.chat {
+            display: block;
+            max-width: 399px;
+            margin: auto;
+        }
+
+        video.inserto {
+            display: block;
+            max-width: 404px;
+            margin: auto;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        p.primero::first-letter {
+            font-size: 1.8em;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+            }
+
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+
+            h1 {
+                font-size: 2.15em;
+            }
+
+            h2 {
+                font-size: 1.55em;
+            }
+        }
+    </style>
+
+    <style>
+        .with-video-bg {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .video-background video {
+            object-fit: cover;
+            object-position: center 25%;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <link href="scrolly-styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+
+    <style>
+        .sticky-thing {
+            background: transparent;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.4em 1.2em;
+            box-sizing: border-box;
+        }
+
+        .scrolly-encabezado {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 640px;
+            margin-bottom: 0.6em;
+            text-align: center;
+        }
+
+        .scrolly-encabezado h3 {
+            margin: 0 0 0.25em;
+            color: #ffffff;
+            font-size: 1.2em;
+        }
+
+        .scrolly-encabezado p {
+            margin: 0;
+            padding: 0;
+            font-size: 0.7em;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .sticky-thing>img {
+            flex: 1 1 auto;
+            min-height: 0;
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .step>* {
+            width: auto;
+            max-width: 24rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 0.8em;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .step p {
+            text-align: center;
+        }
+
+        .step {
+            margin-bottom: 70svh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header with-video-bg">
+        <div class="video-background">
+            <video src="bg-video.mp4" preload="auto" tabindex="0" playsinline autoplay loop muted></video>
+        </div>
+        <div class="content">
+            <h1>The Money Trail in Argentina's Illegal Gambling Investigations</h1>
+        </div>
+    </div>
+
+    <div class="content">
+        <p class="subhead">An official report identified transfers from 266 accounts under minor's name to a company
+            under investigation for suspected illegal gambling.</p>
+        <figure>
+            <img class="ilustracion" src="svg1-transparente.png"
+                alt="A no-under-18 sign next to a phone with a playing card, a casino chip and a slot machine">
+        </figure>
+
+        <p class="subhead">Minors are not only players. Two payment receipts now under review by the courts ended up in
+            accounts registered to children.</p>
+        <figure>
+            <img class="ilustracion" src="svg2.png"
+                alt="A casino chip with a dollar sign and stacks of coins, next to two people">
+        </figure>
+
+        <p class="subhead">Transfers cluster between 10 p.m. and 1 a.m., according to two reports filed in continuing
+            court cases.</p>
+        <figure>
+            <img class="ilustracion" src="svg3.png"
+                alt="Two digital clocks showing 22:00 and 01:00">
+        </figure>
+
+        <p class="subhead">The investigated chain has three steps: advertising, cashiers &mdash; who collect payments and
+            hand out credits to players &mdash; and the gambling sites themselves.</p>
+        <figure>
+            <img class="ilustracion" src="svg4.png"
+                alt="A hand holding a phone, a casino chip with coins, and a slot machine">
+        </figure>
+    </div>
+
+    <div class="header">
+        <div class="content">
+            <h2>The First Winnings (or Debts)</h2>
+            <p class="subhead">The trail of transfers under judicial investigation leads to accounts under minor's name.
+                Along the way it passes through adults who took in as much as 21 times the income ceiling of their
+                declared tax bracket. And the scheme of cashiers and online casinos keeps its ultimate beneficiaries out
+                of sight.</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="byline">
+            <p>By Ignacio Grimaldi</p>
+            <p>An article written for the Lede Program at Columbia University</p>
+        </div>
+
+        <p class="primero">&ldquo;Hello, I wanted to play at your casino,&rdquo; begins a WhatsApp exchange contained in a court file.
+            The reply came with specific instructions:</p>
+
+        <p>&ldquo;Please provide your first and last name to create your account.<br>
+            IMPORTANT<br>
+            WE DO NOT CREATE ACCOUNTS FOR MINORS, NO EXCEPTIONS.<br>
+            Minimum deposit: 1000<br>
+            Minimum withdrawal: 3000<br>
+            Up to two withdrawals per day<br>
+            We only accept bank transfers.&rdquo;</p>
+
+        <p>The player received a &ldquo;game link,&rdquo; instructions on where to send the money and an account created
+            by the person he had contacted. In return he sent a receipt for a 1,000-peso transfer. At no point did the
+            exchange include documents establishing his identity or his age.</p>
+
+        <figure>
+            <img class="chat" src="chat.png"
+                alt="WhatsApp conversation between a player and a cashier">
+            <figcaption>Transcription of messages included in the case file. Translated from Spanish.</figcaption>
+        </figure>
+
+        <p>The chat is one piece of a group of 10 court cases in Argentina involving suspected illegal gambling.
+            Exchanges like it appear in four of the files, with different participants each time. The information
+            contained in each payment receipt &mdash; bank aliases, tax identification numbers &mdash; made it possible
+            to determine who was listed as responsible for the accounts receiving the money. Two of them turned out to
+            be registered to people under 18. The same analysis surfaced some two dozen illegal betting sites that
+            appear nowhere in the cases reviewed.</p>
+
+        <p>Illegal gambling in Argentina has made room for minors. Not only as players, but as cashiers: the middlemen
+            who sell credits for online casinos and collect the payments. Money transfers documented in continuing court
+            cases show adolescents doing exactly that. Two accounts under investigation for allegedly collecting
+            proceeds from clandestine betting took in at least 4.039 billion pesos, about $2.5 million, over three
+            months. Follow that money and it ends with adults whose declared tax status cannot account for the sums they
+            received.</p>
+
+        <p>The consequences reach into classrooms. The Red Cross surveyed 11,421 young people between 13 and 16 at 231
+            schools. Its first finding was that most of them are &ldquo;exposed&rdquo; to online gambling. Among those
+            who bet, 79 percent acknowledged a &ldquo;risk of addiction,&rdquo; one in eight had fallen into debt, 69
+            percent reported anxiety and distress, and 49 percent said their habits and their schoolwork had
+            suffered.</p>
+
+        <figure>
+            <video class="inserto" src="video1.mp4" controls playsinline preload="metadata"></video>
+        </figure>
+
+        <p>Legal gambling in Argentina is regulated and taxed. At the national level every deposit carries a 5 percent
+            levy, and more in some cases. The law bars anyone under 18 from betting. Advertising rules in the city of
+            Buenos Aires require that ads carry the warning: &ldquo;COMPULSIVE GAMBLING IS HARMFUL TO YOUR
+            HEALTH.&rdquo; The rules are not always followed.</p>
+
+        <p>Some of the trade operates in plain sight, in front of thousands of people. Two giant screens in Buenos Aires
+            advertised the site 1xslot at busy intersections. &ldquo;150% bonus up to 300,000 ARS,&rdquo; the ad
+            promised, alongside a QR code. The same ad ran on a screen inside a city bus. In every case, smaller type
+            noted that gambling is prohibited for minors and cited &ldquo;license ogl/2024/586/0786.&rdquo;</p>
+
+        <p>Buenos Aires officials said the city had issued no such license. It had been granted by the Cura&ccedil;ao
+            Gaming Authority to Orakum N.V., a company based there. And the site that holds it is not 1xslot, the one
+            advertised on the street, but 1xslots. That site says an international license &ldquo;does not automatically
+            imply local authorization throughout the country.&rdquo;</p>
+
+        <p>An official report from October 2025 looked more closely at 1xslot, the site on the billboards: &ldquo;When
+            creating a user by email, it does not request age or legal documents. Only a valid email address is
+            required.&rdquo; A separate government agency concluded that &ldquo;it is possible to place bets on the
+            platform&rdquo; from Buenos Aires. It found slot machine games and a menu of payment options that included
+            conventional bank transfers and cryptocurrency.</p>
+
+        <p>Two links in the chain come before a player ever reaches an online casino: the advertising that makes the
+            sites known, and the cashiers who handle the money. The cashiers are part of the money trail. They extend
+            credit to players in exchange for collecting their wagers. The funds do not sit still. The receiving
+            accounts, in turn, record further transfers to third parties in amounts close to what they had just taken
+            in, the documents obtained show.</p>
+
+        <p>The court files obtained by this news organization map a skeleton of 39 illegal betting sites and 91
+            cashiers. Five of the cashiers turned up linked to two or more sites. How to tell an illegal site from a
+            legal one? They do not appear on the list of authorized sites kept by the Association of Argentine State
+            Lotteries, and they do not end in .bet, the domain used by licensed online casinos. Even so, the distinction
+            is not always easy to draw. &ldquo;Between 51 percent and 66 percent of adolescents cannot tell legal
+            betting platforms from illegal ones,&rdquo; the Red Cross study found.</p>
+    </div>
+
+    <section id="scrolly-red" class="scrolly-container">
+        <div class="sticky-thing">
+            <div class="scrolly-encabezado">
+                <h3>39 online gambling sites and 91 cashiers</h3>
+                <p>Identified in court files from ongoing investigations in Argentina. Online gambling sites are in red;
+                    cashiers, in green.</p>
+            </div>
+            <img src="red-casinos.svg" alt="Network of 39 online gambling sites connected to 91 cashiers">
+        </div>
+        <div class="steps-container">
+            <div class="step" id="red-paso1">
+                <p>The court files map a skeleton of 39 alleged illegal betting sites.</p>
+            </div>
+            <div class="step" id="red-paso2">
+                <p>Around them, 91 cashiers: the middlemen who sell credits for the casinos and collect the payments.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <p>According to the documents in the hands of the courts, the sequence begins with advertising: street signs,
+            influencer posts, social media messages pointing to betting sites and explaining how to place a wager.
+            &ldquo;Message us on WhatsApp,&rdquo; reads one post by casinoargentina.24hs on Instagram. Then the cashiers
+            take over.</p>
+
+        <p>The skeleton of casinos and cashiers does not end with the files reviewed here. Illegal casinos also promote
+            themselves on channels like Telegram. An analysis of two years of promotional messages on the public channel
+            ArgentinaCasinos.com lengthens the list by 24 more sites.</p>
+
+        <p>Among those 24, five had sign-up processes that did not require documents verifying age. On one, the box
+            where a user declares being of legal age came pre-checked. &ldquo;Users can register in minutes without
+            uploading documents or providing bank details,&rdquo; reads the site of Bombastic.</p>
+
+        <figure>
+            <img src="captura.png"
+                alt="Bombastic website stating that users can register without uploading documents">
+            <figcaption>Screenshot of the Bombastic site, taken by this news organization.</figcaption>
+        </figure>
+
+        <p>Every message reviewed carries a link to a betting site, along with instructions for getting started and
+            promises of gifts or bonuses.</p>
+
+        <p>&ldquo;Attention, Argentina! Sign up at Melbet and use the promo code ARGENTINACASINOS when you create your
+            account. With this code, your welcome bonus goes up to a total of 1,000,000 extra as a gift,&rdquo; read a
+            message posted on July 2.</p>
+
+        <p>A year and a half earlier, another one promised: &ldquo;We're handing it to you &mdash; with this casino you
+            take home up to 1 BTC as a gift plus 100 free spins on your first deposit. Huge deal! It also offers daily
+            cashback bonuses: the more you play, the more you get back. What are you waiting for?&rdquo;</p>
+    </div>
+
+    <div class="full-width">
+        <figure>
+            <img src="heatmap.svg" alt="Hourly table of Telegram messages and transfers to two investigated accounts">
+        </figure>
+    </div>
+
+    <div class="content">
+        <p>There is a pattern around time. The messages peak between 3 and 4 p.m., and again between 7 and 8 p.m. The
+            transfers analyzed in documents submitted to the courts follow a similar rhythm. One official report
+            identified 266 minors who sent money to an account suspected of collecting illegal gambling proceeds. The
+            busiest hours fall between 10 p.m. and 1 a.m., but at 3 p.m. the number of transfers also jumps. It falls
+            off from 4 p.m. until 7 p.m., when the decline stops, and the volume climbs again after 8 p.m.</p>
+
+        <p>A similar pattern repeats when transfers are analyzed with no age filter at all. Starting at 7 p.m., the
+            hourly count rises steadily, reaching a maximum between 11 p.m. and midnight.</p>
+
+        <p>Government agencies track movements through banks and digital wallets tied to accounts suspected of
+            collecting illegal gambling money. This investigation obtained reports on two of them. Why those two in
+            particular? Because they appear in the payment instructions of two casinos. Together, according to both
+            reports, they absorbed 4.039 billion pesos in just under 90 days.</p>
+
+        <p>That sum comprises 193,420 transfers. Among them, 266 minors appear as the primary holders of the accounts
+            that set the movements in motion, one report found. A 16-year-old boy sent one million pesos &mdash; more
+            than the average income of the country's working population, according to official statistics for the first
+            quarter of the year.</p>
+
+        <h3>Betting by minors</h3>
+    </div>
+
+    <div class="full-width">
+        <figure>
+            <img src="waffle.svg" alt="Grid of 266 accounts by how much money they received back">
+        </figure>
+    </div>
+
+    <div class="content">
+        <p>The case reviewed shows 523 transfers from 266 accounts whose primary holders are minors. They did not go
+            through banks, but through digital wallets. The destination: one of the accounts suspected of collecting
+            illegal wagers. The average transfer came to 10,684 pesos. Together they added up to 5.5 million.</p>
+
+        <p>Twenty-one of the accounts in these minors' names received money back from the account under suspicion:
+            698,700 pesos, or 12 percent of what the 266 accounts had sent. In seven cases the payment back exceeded the
+            original transfer, in five it matched, and in nine it fell short.</p>
+
+        <h3 class="unalinea">Where Did the Money From the Two Accounts Go?</h3>
+    </div>
+
+    <div class="full-width">
+        <figure>
+            <img src="sankey.svg" alt="Flow of funds entering two investigated accounts and moving on to third parties">
+        </figure>
+    </div>
+
+    <div class="content">
+        <p>The two accounts kept only a small share of the money. Each passed at least 92 percent of it on to third
+            parties. Who are they? Their principal recipients are registered with Argentine tax authorities under a
+            bracket whose annual income ceiling is as much as 21 times below the sums they took in.</p>
+
+        <p>For the account that collected the most, the principal recipient is a 23-year-old man, according to banking
+            records. He received 230.7 million pesos between November and February. With the tax agency he is registered
+            as a Category A monotributista, a bracket for small earners that caps annual income at 10.2 million
+            pesos.</p>
+
+        <p>A similar pattern shows up at the other account under suspicion for collecting illegal gambling proceeds.
+            Over eight days last June and July, its principal recipient took in 194.1 million pesos. That person, tax
+            records show, is also a Category A monotributista.</p>
+
+        <p>One of the other main recipients presents a different problem. His CUIT &mdash; the identification number
+            Argentines use with the tax agency &mdash; &ldquo;has pending verification requirements,&rdquo; according to
+            the official database.</p>
+
+        <p>Judicial sources acknowledged the difficulty of &ldquo;attacking the problem.&rdquo; Courts have managed more
+            than once to block illegal sites. Investigators call the tool useful, but say it does not stop new
+            unlicensed pages from appearing.</p>
+
+        <p>Players in Argentina's financial system say digital wallet providers have tightened their controls, and still
+            face limits in detecting wrongdoing. &ldquo;Illegal betting businesses tend to disguise the line of work
+            they are in,&rdquo; they said.</p>
+
+        <p>Those difficulties explain why the machinery of illegal gambling remains visible and within reach, while the
+            people who ultimately profit from it keep both their anonymity and their impunity.</p>
+
+        <h3>Methodology</h3>
+
+        <p>This story is based on ten court cases involving suspected illegal gambling in the City of Buenos Aires, all
+            opened in 2024 and still active. We obtained the files through judicial sources.</p>
+
+        <p>We began by identifying the allegations in each case. Because some of the documents are poor-quality scans,
+            we extracted by hand the cashiers named in the complaints, the websites they were linked to and the WhatsApp
+            conversations associated with each one. That produced a first database, which we used to build the network
+            of sites and cashiers under investigation. We checked the resulting list against the registry of licensed
+            sites published by the Association of State Lotteries of Argentina, known as Alea, and confirmed with the
+            group&rsquo;s representatives in July 2026 that the registry was current.</p>
+
+        <p>We then searched for public Telegram channels devoted to gambling in Argentina. Using the Telethon library,
+            we collected 185 messages posted to a group called ArgentinaCasinos.com between September 2024 and July 2026,
+            and used regular expressions to pull out the links to the gambling sites promoted in each message.</p>
+
+        <p>We visited those addresses with Playwright, a browser automation tool, to document how the sites register
+            users and what identification they ask for. We stopped at the step before confirming an account and never
+            completed a registration, to avoid opening user accounts on sites under judicial investigation. Because each
+            site offers a different path through the process, we adapted the procedure case by case.</p>
+
+        <p>Finally, we used natural-pdf to extract the money transfer reports contained in the case files and organize
+            them into tables. We standardized the columns for debit, amount, credit, and date and time so the records
+            could be compared, which allowed us to identify sums, timestamps and possible recipients. We then
+            cross-referenced those records with the tax filings for the recipients published by ARCA, the agency that
+            replaced AFIP.</p>
+
+        <p><strong>Limitations.</strong> All ten cases are pending, and no one has been convicted: the events and
+            connections described here are allegations under judicial investigation. Because the files came from
+            sources, they do not represent every illegal gambling case in the city. The Telegram findings come from a
+            single public group and do not describe the market as a whole. The quality of some scans made automated
+            extraction impossible, and information on those pages may have gone unrecovered. And because we did not
+            complete any registrations, our account of those processes ends at the step before an account is
+            confirmed.</p>
+    </div>
+
+    <div class="footer">
+        <div class="content">
+            <p>Page template by <a href="https://github.com/jsoma/page-templates/">Jonathan Soma</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            const scroller = scrollama()
+
+            scroller
+                .setup({
+                    parent: document.querySelector("#scrolly-red"),
+                    step: ".step",
+                    offset: 0.6,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                    element.dispatchEvent(event)
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    if (direction === "up" && element.previousElementSibling) {
+                        const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                        element.previousElementSibling.dispatchEvent(event)
+                    }
+                })
+
+            window.addEventListener("resize", scroller.resize)
+        })()
+
+        d3.select("#red-paso1").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "red-casinos.svg")
+        })
+
+        d3.select("#red-paso2").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "red.svg")
+        })
+    </script>
+
+</body>
+
+</html>
