@@ -426,6 +426,9 @@
             <div class="step" id="red-paso2">
                 <p>Around them, 91 cashiers: the middlemen who sell credits for the casinos and collect the payments.</p>
             </div>
+            <div class="step" id="red-paso3">
+                <p>Two cashiers appear with accounts under minors' name.</p>
+            </div>
         </div>
     </section>
 
@@ -640,6 +643,10 @@
         })
 
         d3.select("#red-paso2").on('stepin', (e) => {
+            d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "red.svg")
+        })
+
+        d3.select("#red-paso3").on('stepin', (e) => {
             d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "red.svg")
         })
 
